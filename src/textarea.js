@@ -40,6 +40,9 @@
       pre = pre.replace(strategy.match, newSubstr);
       this.$el.val(pre + post);
       this.el.selectionStart = this.el.selectionEnd = pre.length;
+
+      // Trigger an 'input' event to alert other listeners who are waiting for input events
+      this.$el.trigger('input');
     },
 
     // Private methods
